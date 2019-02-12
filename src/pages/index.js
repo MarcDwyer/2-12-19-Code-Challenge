@@ -55,7 +55,7 @@ class IndexPage extends React.Component {
                         onChange={(e) => this.setState({ search: e.target.value })}
                     />
                 </div>
-                {filteredResults && redditResults && redditResults.length !== 0 && (
+                {filteredResults && redditResults && filteredResults.length !== 0 && (
                     <ul>
                         {filteredResults.map(({ thumbnail, title, url }, index) => (
                             <li key={index}>
@@ -71,7 +71,7 @@ class IndexPage extends React.Component {
                     <ul>
                         {redditResults.map(({ thumbnail, title, url }, index) => (
                             <li key={index}>
-                                <a target="_blank" href={url}>
+                                <a target="_blank" href={url} rel="noopener noreferrer">
                                     <strong>{title}</strong>
                                     <img src={thumbnail} alt={title} />
                                 </a>
@@ -86,7 +86,7 @@ class IndexPage extends React.Component {
         );
     }
     renderSearch = () => {
-        const { search, filteredResults, redditResults } = this.state
+        const { search, redditResults } = this.state
         
         const filtered = redditResults.filter(({ title }) => {
             const lowerTitle = title.toLowerCase()
