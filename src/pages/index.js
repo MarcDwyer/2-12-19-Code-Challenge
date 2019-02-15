@@ -29,6 +29,7 @@ class IndexPage extends React.Component {
         axios.get('https://www.reddit.com/r/science.json').then(function (response) {
             const redditResults = response.data.data.children.map(node => {
                 const data = node.data;
+                console.log(data)
                 return {
                     url: `https://www.reddit.com${data.permalink}`,
                     thumbnail: data.thumbnail,
