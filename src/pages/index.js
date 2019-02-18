@@ -53,6 +53,7 @@ class IndexPage extends React.Component {
                 <div className="search">
                     <input type="text" name="search" id="search"
                         placeholder="Search reddit..."
+                        value={this.state.search}
                         onChange={(e) => this.setState({ search: e.target.value })}
                     />
                 </div>
